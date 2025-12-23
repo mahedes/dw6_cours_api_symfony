@@ -58,7 +58,7 @@ final class BookController extends AbstractController
     {
         $newBook = $serializer->deserialize($request->getContent(), Book::class, 'json');
 
-        // On verfiie les erreurs
+        // On verifie les erreurs
         $errors = $validator->validate($newBook);
 
         if($errors->count() > 0) {

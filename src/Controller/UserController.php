@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class UserController extends AbstractController
 {
-    #[Route('/api/userList', name: 'app_user_list')]
+    #[Route('/api/userList', name: 'app_user_list', methods: ['GET'])]
     public function showUsersList(SerializerInterface $serializer, UserRepository $userRepository): JsonResponse
     {
         $users = $userRepository->findAll();
