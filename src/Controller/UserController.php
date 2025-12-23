@@ -9,9 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Repository\UserRepository;
 use Symfony\Component\Serializer\SerializerInterface;
 
+use Nelmio\ApiDocBundle\Attribute\Model;
+use Nelmio\ApiDocBundle\Attribute\Security;
+use OpenApi\Attributes as OA;
+
+
 final class UserController extends AbstractController
 {
     #[Route('/api/userList', name: 'app_user_list', methods: ['GET'])]
+    #[OA\Tag(name: 'Read')]
     public function showUsersList(SerializerInterface $serializer, UserRepository $userRepository): JsonResponse
     {
         $users = $userRepository->findAll();
